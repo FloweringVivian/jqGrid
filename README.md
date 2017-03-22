@@ -4,6 +4,11 @@ jqGrid项目使用总结
 最近项目中用jqGrid来实现页面中的表格数据，使用过程中感触颇多，总体发现jqGrid灵活性还是很好的，我使用过程中参考了API文档，感觉这个API文档挺全面的，文档地址为：
 [jqGrid实例中文版](http://blog.mn886.net/jqGrid/) 
 
+首先说一下项目的需求：<br>
+type==0  永久锁     status==0 正常    --可以变更为定期激活锁<br>
+type==1  定期激活锁  status==0 正常 || status==1 未激活   --可以变更为永久锁，可挂失<br>
+status==4  已挂失  --只有已挂失的锁可以取消挂失
+
 下面是我在项目中遇到问题的总结：
 
 #### 1.onSelectRow的问题
@@ -58,3 +63,56 @@ function watchBtn(arrList){
   $("#cancelLoss").prop("disabled",cancelLossBtn);
 }
 ```
+
+#### 2.formatter的问题
+我的项目中有个这样的需求，就是接口会返回类型type和状态status，返回的是数值，但是不会返回对应的名称，所以需要我自己根据返回的数值显示出对应的名称，于是我查了一下API，发现formatter可以实现，于是我就这样写：
+
+```javascript
+colModel:[
+    {
+        label:"激活类型",
+        name: "type",
+        width: 100,
+        formatter: function(cellValue, options, rowObject){
+            switch(cellValue){
+                case 0:
+                    return "永久";
+                    break;
+                case 1:
+                    return "定期激活";
+                    break;
+           }
+        }
+    }
+]
+```
+
+status也采用了同样的原理，结果问题来了，加了formatter以后，把原来的type和status都赋值成了文本内容，就是formatter里return的值，但是我之前的控制按钮状态的方法是根据type和status的数值来判断的，结果现在判断就不生效了，后来发现了一个解决办法，就是不直接改变type的值，而是增加一个参数typeName，让type列隐藏（hidden:true），然后给typeName列写formatter，所以说jqGrid还是很灵活的，代码如下，具体代码请查看我的项目源代码
+
+```javascript
+colModel:[
+    {
+        label:"激活类型",
+        name: "type",
+        width: 100,
+        hidden: true
+    },
+    {
+        label:"激活类型",
+        name: "typeName",
+        width: 100,
+        formatter: function(cellValue, options, rowObject){
+            switch(rowObject.type){
+                case 0:
+                    return "永久";
+                    break;
+                case 1:
+                    return "定期激活";
+                    break;
+           }
+        }
+    }
+]
+```
+
+formatter有三个参数cellValue(当前cell的值)，options(该cell的options设置，包括{rowId, colModel,pos,gid})，rowObject(当前cell所在row的值，如{ id=1, name="name1", price=123.1, ...})，所以我可以根据rowObject.type来确定typeName的值
