@@ -11,7 +11,7 @@ status==4  已挂失  --只有已挂失的锁可以取消挂失
 
 下面是我在项目中遇到问题的总结：
 
-#### 1.onSelectRow的问题
+### 1.onSelectRow的问题
 
 ```javascript
 onSelectRow: function(rowid, status){
@@ -64,7 +64,7 @@ function watchBtn(arrList){
 }
 ```
 
-#### 2.formatter的问题
+### 2.formatter的问题
 我的项目中有个这样的需求，就是接口会返回类型type和状态status，返回的是数值，但是不会返回对应的名称，所以需要我自己根据返回的数值显示出对应的名称，于是我查了一下API，发现formatter可以实现，于是我就这样写：
 
 ```javascript
