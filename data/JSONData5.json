@@ -1,0 +1,141 @@
+{
+    "records": 15,
+    "total": 2,
+    "rows": [
+        {
+            "id": "1001",
+            "keyNumber": 2017001,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "1002",
+            "keyNumber": 2017002,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 1,
+            "status": 0,
+            "latestTime": "2017-3-14 00:00:00"
+        },
+        {
+            "id": "1003",
+            "keyNumber": 2017003,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 2,
+            "latestTime": "--"
+        },
+        {
+            "id": "1004",
+            "keyNumber": 2017004,
+            "chipNumber": "3432432",
+            "productTime": "2017-02-23",
+            "type": 1,
+            "status": 1,
+            "latestTime": "2017-3-14 00:00:00"
+        },
+        {
+            "id": "1005",
+            "keyNumber": 2017004,
+            "chipNumber": "3432432",
+            "productTime": "2017-02-23",
+            "type": 1,
+            "status": 3,
+            "latestTime": "2017-3-14 00:00:00"
+        },
+        {
+            "id": "1006",
+            "keyNumber": 2017004,
+            "chipNumber": "3432432",
+            "productTime": "2017-02-23",
+            "type": 1,
+            "status": 4,
+            "latestTime": "2017-3-14 00:00:00"
+        },
+        {
+            "id": "1007",
+            "keyNumber": 2017004,
+            "chipNumber": "3432432",
+            "productTime": "2017-02-23",
+            "type": 1,
+            "status": 5,
+            "latestTime": "2017-3-14 00:00:00"
+        },
+        {
+            "id": "1008",
+            "keyNumber": 2017008,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "1009",
+            "keyNumber": 2017009,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10010",
+            "keyNumber": 20170010,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10011",
+            "keyNumber": 20170011,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10012",
+            "keyNumber": 20170012,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10013",
+            "keyNumber": 20170013,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10014",
+            "keyNumber": 20170014,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        },
+        {
+            "id": "10015",
+            "keyNumber": 20170015,
+            "chipNumber": 66666,
+            "productTime": "2017-02-23",
+            "type": 0,
+            "status": 0,
+            "latestTime": "--"
+        }
+    ]
+}

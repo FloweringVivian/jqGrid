@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- jqGrid组件基础样式包-必要 -->
+		<link rel="stylesheet" href="jqgrid/css/ui.jqgrid.css" />
+		
+		<!-- jqGrid主题包-非必要 --> 
+		<!-- 在jqgrid/css/css这个目录下还有其他的主题包，可以尝试更换看效果 -->
+		<link rel="stylesheet" href="jqgrid/css/css/redmond/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" href="jqgrid/css/css/redmond/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" href="jqgrid/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="jqgrid/css/bootstrap-theme.min.css" />
+
+		<!-- jquery插件包-必要 -->
+		<!-- 这个是所有jquery插件的基础，首先第一个引入 -->
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		
+		<!-- jqGrid插件包-必要 -->
+		<script type="text/javascript" src="jqgrid/js/jquery.jqGrid.src.js"></script>
+		
+		<!-- jqGrid插件的多语言包-非必要 -->
+		<!-- 在jqgrid/js/i18n下还有其他的多语言包，可以尝试更换看效果 -->
+		<script type="text/javascript" src="jqgrid/js/i18n/grid.locale-cn.js"></script>
+		<title>jqGrid test5</title>
+	</head>
+	<body>
+		<div id="keyBtn" style="padding: 20px 0;">
+			<form class="form-inline">
+				<input class="btn btn-info" id="toForever" type="button" value="变更为永久" />
+				<input class="btn btn-info" id="toActivation" type="button" value="变更为定期激活" />
+				<input class="btn btn-info" id="loss" type="button" value="挂失" />
+				<input class="btn btn-info" id="cancelLoss" type="button" value="取消挂失" />
+				<select class="form-control" id="selectType">
+					<option data-type="">全部</option>
+					<option data-type="0">永久</option>
+					<option data-type="1">定期激活</option>
+				</select>
+			</form>
+		</div>
+		<table id="jqGrid" cellpadding="0" cellspacing="0"></table>
+		<div id="pager"></div>
+		<!--查看详情 modal-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="detail-modal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">用户锁信息</h4>
+					</div>
+					<div class="modal-body">
+						<p>加密锁ID：<span id="keyId"></span></p>
+						<p>加密锁编号：<span id="keyNumber"></span></p>
+						<p>芯片序列号：<span id="chipNumber"></span></p>
+						<p>生产时间：<span id="productTime"></span></p>
+						<p>锁激活类型：<span id="typeName"></span></p>
+						<p>当前状态：<span id="statusName"></span></p>
+						<p>最近激活时间：<span id="latestTime"></span></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">确定</button>
+					</div>
+				</div>
+			</div>
+		</div><!-- modal end -->
+		<!--历史记录 modal-->
+		<div>
+			<div class="modal fade" tabindex="-1" role="dialog" id="history-modal">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">状态变更记录</h4>
+						</div>
+						<div class="modal-body">
+							<table id="jqGrid-history"></table>
+							<div id="pager-history"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--modal end-->
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
