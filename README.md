@@ -9,7 +9,7 @@ type==0  永久锁     status==0 正常    --可以变更为定期激活锁<br>
 type==1  定期激活锁  status==0 正常 || status==1 未激活   --可以变更为永久锁，可挂失<br>
 status==4  已挂失  --只有已挂失的锁可以取消挂失
 
-下面是我在项目中遇到问题的总结：
+下面是我在项目中遇到问题的总结：1和2请在localhost环境打开index.html查看效果
 
 ### 1.onSelectRow的问题
 
@@ -116,3 +116,5 @@ colModel:[
 ```
 
 formatter有三个参数cellValue(当前cell的值)，options(该cell的options设置，包括{rowId, colModel,pos,gid})，rowObject(当前cell所在row的值，如{ id=1, name="name1", price=123.1, ...})，所以我可以根据rowObject.type来确定typeName的值，statusName的值也采用同样的原理，详情js请见js/index.js。
+
+### 3.封装jqGrid组件
