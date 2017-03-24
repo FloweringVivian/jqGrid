@@ -117,4 +117,15 @@ colModel:[
 
 formatter有三个参数cellValue(当前cell的值)，options(该cell的options设置，包括{rowId, colModel,pos,gid})，rowObject(当前cell所在row的值，如{ id=1, name="name1", price=123.1, ...})，所以我可以根据rowObject.type来确定typeName的值，statusName的值也采用同样的原理，详情js请见js/index.js。
 
-### 3.封装jqGrid组件
+### 3.获取分页信息
+
+获取返回的当前页，每页数，总页数，返回的总记录数的代码如下：
+
+```javascript
+var re_records = $("#jqGrid").getGridParam('records');//获取返回的记录数  
+var re_page = $("#jqGrid").getGridParam('page');//获取返回的当前页  
+var re_rowNum= $("#jqGrid").getGridParam('rowNum');//获取每页数  
+var re_total= $("#jqGrid").getGridParam('lastpage');//获取总页数
+```
+
+### 4.封装jqGrid组件
