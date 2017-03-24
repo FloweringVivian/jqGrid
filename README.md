@@ -122,9 +122,12 @@ formatter有三个参数cellValue(当前cell的值)，options(该cell的options�
 获取返回的当前页，每页数，总页数，返回的总记录数的代码如下：
 
 ```javascript
-var re_records = $("#jqGrid").getGridParam('records');//获取返回的记录数  
-var re_page = $("#jqGrid").getGridParam('page');//获取返回的当前页  
+var re_records = $("#jqGrid").getGridParam('records');//获取返回的记录数 
+
+var re_page = $("#jqGrid").getGridParam('page');//获取返回的当前页
+
 var re_rowNum= $("#jqGrid").getGridParam('rowNum');//获取每页数  
+
 var re_total= $("#jqGrid").getGridParam('lastpage');//获取总页数
 ```
 
