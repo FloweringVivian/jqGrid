@@ -117,18 +117,33 @@ colModel:[
 
 formatter有三个参数cellValue(当前cell的值)，options(该cell的options设置，包括{rowId, colModel,pos,gid})，rowObject(当前cell所在row的值，如{ id=1, name="name1", price=123.1, ...})，所以我可以根据rowObject.type来确定typeName的值，statusName的值也采用同样的原理，详情js请见js/index.js。
 
-### 3.获取分页信息
+### 3.jqGrid获取数据信息
+
+#### 3-1 获取分页信息
 
 获取返回的当前页，每页数，总页数，返回的总记录数的代码如下：
 
 ```javascript
-var re_records = $("#jqGrid").getGridParam('records');  //获取返回的记录数 
+var re_records = $("#gridTable").getGridParam('records');  //获取返回的记录数 
 
-var re_page = $("#jqGrid").getGridParam('page');  //获取返回的当前页
+var re_page = $("#gridTable").getGridParam('page');  //获取返回的当前页
 
-var re_rowNum= $("#jqGrid").getGridParam('rowNum');  //获取每页数  
+var re_rowNum= $("#gridTable").getGridParam('rowNum');  //获取每页数  
 
-var re_total= $("#jqGrid").getGridParam('lastpage');  //获取总页数
+var re_total= $("#gridTable").getGridParam('lastpage');  //获取总页数
+```
+
+#### 3-2 获取选中的行的数据
+
+```javascript
+//获取选择一行的id，如果你选择多行，那下面的id是最后选择的行的id
+var id=$("#gridTable").jqGrid("getGridParam","selrow");
+
+//获取选择多行的id，并返回一个id数组
+var ids=$("#gridTable").jqGrid("getGridParam","selarrrow");
+
+//如果想获取选择的行的数据，只要传入rowId即可
+var rowData = $("#gridTable").jqGrid("getRowData",rowId);
 ```
 
 ### 4.封装jqGrid组件
