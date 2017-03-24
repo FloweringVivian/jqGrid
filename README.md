@@ -124,14 +124,16 @@ formatter有三个参数cellValue(当前cell的值)，options(该cell的options�
 ```javascript
 colModel:[
     {
-				    label: "操作",
-				    name: "operate",
-				    width: 100,
-				    formatter: function (value, grid, rows, state) { return "<a href=\"#\" style=\"color:#f60\" data-toggle=\"modal\" data-target=\"#history-modal\"  onclick=\"historyRecords(" + rows.id + ")\">记录</a><a href=\"#\" style=\"color:#f60;margin-left:10px;\" data-toggle=\"modal\" data-target=\"#detail-modal\" onclick=\"detail(" + rows.id + ")\">查看</a>" }
-			}
+    label: "操作",
+    name: "operate",
+    width: 100,
+    formatter: function (value, grid, rows, state) { 
+        return "<a href=\"#\" style=\"color:#f60\" data-toggle=\"modal\" data-target=\"#history-modal\"  onclick=\"historyRecords(" + rows.id + ")\">记录</a><a href=\"#\" style=\"color:#f60;margin-left:10px;\" data-toggle=\"modal\" data-target=\"#detail-modal\" onclick=\"detail(" + rows.id + ")\">查看</a>"
+    						   }
+    }
 ]
 ```
-这样就定义了两个按钮，并且在js里为这两个按钮定义了两个函数，但是我无意中发现，使用a标签定义这两个按钮是没有问题的，但是有的同学不经意间使用了span标签来定义这两个按钮，并且给span加了cursor:pointer，虽然这样看起来跟a标签没有什么区别，但是使用span标签的过程中出现了一个bug，就是我点击按钮的时候按钮所在的行会被选中或取消选中，本来我点击按钮是要打开弹窗的，并不想选中一行，希望点击一行中除了按钮以外的位置再选中一行，`所以注意：要使用a标签来定义按钮，而不是span标签。`
+这样就定义了两个按钮，并且在js里为这两个按钮定义了两个函数，但是我无意中发现，使用a标签定义这两个按钮是没有问题的，但是有的同学不经意间使用了span标签来定义这两个按钮，并且给span加了cursor:pointer，虽然这样看起来跟a标签没有什么区别，但是使用span标签的过程中出现了一个bug，就是我点击按钮的时候按钮所在的行会被选中或取消选中，本来我点击按钮是要打开弹窗的，并不想选中一行，希望点击一行中除了按钮以外的位置再选中一行，**所以注意：要使用a标签来定义按钮，而不是span标签。**
 
 ### 4.jqGrid获取数据信息
 
