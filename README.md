@@ -117,9 +117,25 @@ colModel:[
 
 formatter有三个参数cellValue(当前cell的值)，options(该cell的options设置，包括{rowId, colModel,pos,gid})，rowObject(当前cell所在row的值，如{ id=1, name="name1", price=123.1, ...})，所以我可以根据rowObject.type来确定typeName的值，statusName的值也采用同样的原理，详情js请见js/index.js。
 
-### 3.jqGrid获取数据信息
+### 3.formatter定义点击按钮的问题
 
-#### 3-1 获取分页信息
+我在每一行定义了两个按钮"记录"和"查看"，代码如下：
+
+```javascript
+colModel:[
+    {
+				    label: "操作",
+				    name: "operate",
+				    width: 100,
+				    formatter: function (value, grid, rows, state) { return "<a href=\"#\" style=\"color:#f60\" data-toggle=\"modal\" data-target=\"#history-modal\"  onclick=\"historyRecords(" + rows.id + ")\">记录</a><a href=\"#\" style=\"color:#f60;margin-left:10px;\" data-toggle=\"modal\" data-target=\"#detail-modal\" onclick=\"detail(" + rows.id + ")\">查看</a>" }
+			}
+]
+```
+这样就定义了两个按钮，并且在js里为这两个按钮定义了两个函数，但是我无意中发现，使用a标签定义这两个按钮是没有问题的，但是有的同学不经意间使用了span标签来定义这两个按钮，并且给span加了cursor:pointer，虽然这样看起来跟a标签没有什么区别，但是使用span标签的过程中出现了一个bug，就是我点击按钮的时候按钮所在的行会被选中或取消选中，本来我点击按钮是要打开弹窗的，并不想选中一行，希望点击一行中除了按钮以外的位置再选中一行，`所以注意：要使用a标签来定义按钮，而不是span标签。`
+
+### 4.jqGrid获取数据信息
+
+#### 4-1 获取分页信息
 
 获取返回的当前页，每页数，总页数，返回的总记录数的代码如下：
 
@@ -133,7 +149,7 @@ var re_rowNum= $("#gridTable").getGridParam('rowNum');  //获取每页数
 var re_total= $("#gridTable").getGridParam('lastpage');  //获取总页数
 ```
 
-#### 3-2 获取选中的行的数据
+#### 4-2 获取选中的行的数据
 
 ```javascript
 //获取选择一行的id，如果你选择多行，那下面的id是最后选择的行的id
@@ -146,4 +162,4 @@ var ids=$("#gridTable").jqGrid("getGridParam","selarrrow");
 var rowData = $("#gridTable").jqGrid("getRowData",rowId);
 ```
 
-### 4.封装jqGrid组件
+### 5.封装jqGrid组件
