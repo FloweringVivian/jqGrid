@@ -177,8 +177,7 @@ $("#gridTable").jqGrid("resetSelection", rowId);  
 ### 5.封装jqGrid组件
 
 
-=======
-
+----------
 参考文章链接
 
 http://blog.mn886.net/jqGrid/
