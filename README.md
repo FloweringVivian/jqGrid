@@ -164,4 +164,14 @@ var ids=$("#gridTable").jqGrid("getGridParam","selarrrow");
 var rowData = $("#gridTable").jqGrid("getRowData",rowId);
 ```
 
+#### 4-3 设置选中行
+
+```javascript
+//选中id为rowId的某一行，不刷新列表
+$("#gridTable").jqGrid("setSelection", rowId);  
+
+//取消选中id为rowId的某一行，不刷新列表
+$("#gridTable").jqGrid("resetSelection", rowId);  
+```
+
 ### 5.封装jqGrid组件
