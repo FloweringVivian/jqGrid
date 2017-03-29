@@ -8,13 +8,13 @@ function watchBtn(arrList){
 	var cancelLossBtn = false;
 	if(arrList && arrList.length>0){
 		for(var i=0;i<arrList.length;i++){
-			if(arrList[i].type != 1 || arrList[i].status != 0){  //只有type==1 && status==0(定期激活 正常)才能变更为永久
+			if(arrList[i].type != 1 || arrList[i].status != 0){  //只有type==1 && status==0(BBB 正常)才能变更为AAA
 				toForeverBtn = true;
 			};
-			if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(永久 正常)才能变更为定期激活
+			if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(AAA 正常)才能变更为BBB
 				toActivationBtn = true;
 			};
-			if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(定期激活 正常 未激活)才能挂失
+			if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未激活)才能挂失
 				lossBtn = true;
 			};
 			if(arrList[i].status != 4){  //只有status==4(已挂失)才能取消挂失
@@ -91,12 +91,12 @@ $(function(){
 				hidden: true
 			},
 			{
-				label: "加密锁编号",
+				label: "编号",
 				name: "keyNumber",
 				width: 100
 			},
 			{
-				label: "芯片序列号",
+				label: "序列号",
 				name: "chipNumber",
 				width: 100
 			},
@@ -118,10 +118,10 @@ $(function(){
 				formatter: function(cellValue, options, rowObject){
 					switch(rowObject.type){
 						case 0:
-							return "永久";
+							return "AAA";
 							break;
 						case 1:
-							return "定期激活";
+							return "BBB";
 							break;
 					}
 				}
@@ -145,10 +145,10 @@ $(function(){
 							return "未激活";
 							break;
 						case 2:
-							return "正在变更为定期激活";
+							return "正在变更为BBB";
 							break;
 						case 3:
-							return "正在变更为永久";
+							return "正在变更为AAA";
 							break;
 						case 4:
 							return "已挂失";

@@ -28,14 +28,14 @@
 	<body>
 		<div id="keyBtn" style="padding: 20px 0;">
 			<form class="form-inline">
-				<input class="btn btn-info" id="toForever" type="button" value="变更为永久" />
-				<input class="btn btn-info" id="toActivation" type="button" value="变更为定期激活" />
+				<input class="btn btn-info" id="toForever" type="button" value="变更为AAA" />
+				<input class="btn btn-info" id="toActivation" type="button" value="变更为BBB" />
 				<input class="btn btn-info" id="loss" type="button" value="挂失" />
 				<input class="btn btn-info" id="cancelLoss" type="button" value="取消挂失" />
 				<select class="form-control" id="selectType">
 					<option data-type="">全部</option>
-					<option data-type="0">永久</option>
-					<option data-type="1">定期激活</option>
+					<option data-type="0">AAA</option>
+					<option data-type="1">BBB</option>
 				</select>
 			</form>
 		</div>
@@ -47,14 +47,14 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">用户锁信息</h4>
+						<h4 class="modal-title">信息</h4>
 					</div>
 					<div class="modal-body">
-						<p>加密锁ID：<span id="keyId"></span></p>
-						<p>加密锁编号：<span id="keyNumber"></span></p>
-						<p>芯片序列号：<span id="chipNumber"></span></p>
+						<p>ID：<span id="keyId"></span></p>
+						<p>编号：<span id="keyNumber"></span></p>
+						<p>序列号：<span id="chipNumber"></span></p>
 						<p>生产时间：<span id="productTime"></span></p>
-						<p>锁激活类型：<span id="typeName"></span></p>
+						<p>激活类型：<span id="typeName"></span></p>
 						<p>当前状态：<span id="statusName"></span></p>
 						<p>最近激活时间：<span id="latestTime"></span></p>
 					</div>
