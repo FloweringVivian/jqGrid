@@ -174,8 +174,27 @@ $("#gridTable").jqGrid("setSelection", rowId);  
 $("#gridTable").jqGrid("resetSelection", rowId);  
 ```
 
-### 5.封装jqGrid组件
+### 5.jqGrid treeGrid（树）
 
+相信用过jqGrid的同学都用到过它的树(treeGrid)，将初始化参数treeGrid设置为true，在使用treeGrid的过程中，我在网上看好多人都提问同样一个奇葩的问题，我也遇到了这个问题，最终各种试验，找到了解决办法，demo请查看tree.html，下面来分享一下：
+
+接口返回的expanded值为false时，tree应该是默认收起的状态，但是实际却是默认展开的状态，这是怎么回事呢，我反复试验，最后发现竟然原因是这样：
+
+这是有问题的json数据：
+
+```javascript
+{
+    "rows":[
+        {"id":"1","name":"一级菜单","parentMenuId":null,"level":"0","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"2","name":"二级菜单1","parentMenuId":1,"level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"3","name":"三级菜单1","parentMenuId":2,"level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"4","name":"三级菜单2","parentMenuId":2,"level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"5","name":"二级菜单2","parentMenuId":1,"level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"6","name":"三级菜单1","parentMenuId":5,"level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"7","name":"三级菜单2","parentMenuId":5,"level":"2","isLeaf":true,"expanded":false,"loaded":true}
+    ]
+}
+```
 
 ----------
 参考文章链接
