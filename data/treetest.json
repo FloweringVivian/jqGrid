@@ -1,0 +1,11 @@
+{
+    "rows":[
+        {"id":"1","name":"一级菜单","parentMenuId":null,"level":"0","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"2","name":"二级菜单1","parentMenuId":"1","level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"3","name":"三级菜单1","parentMenuId":"2","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"4","name":"三级菜单2","parentMenuId":"2","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"5","name":"二级菜单2","parentMenuId":"1","level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"6","name":"三级菜单1","parentMenuId":"5","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"7","name":"三级菜单2","parentMenuId":"5","level":"2","isLeaf":true,"expanded":false,"loaded":true}
+    ]
+}

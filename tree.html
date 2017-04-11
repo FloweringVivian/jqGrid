@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- jqGrid组件基础样式包-必要 -->
+		<link rel="stylesheet" href="jqgrid/css/ui.jqgrid.css" />
+		
+		<!-- jqGrid主题包-非必要 --> 
+		<!-- 在jqgrid/css/css这个目录下还有其他的主题包，可以尝试更换看效果 -->
+		<link rel="stylesheet" href="jqgrid/css/css/redmond/jquery-ui-1.8.16.custom.css" />
+
+		<!-- jquery插件包-必要 -->
+		<!-- 这个是所有jquery插件的基础，首先第一个引入 -->
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		
+		<!-- jqGrid插件包-必要 -->
+		<script type="text/javascript" src="jqgrid/js/jquery.jqGrid.src.js"></script>
+		
+		<!-- jqGrid插件的多语言包-非必要 -->
+		<!-- 在jqgrid/js/i18n下还有其他的多语言包，可以尝试更换看效果 -->
+		<script type="text/javascript" src="jqgrid/js/i18n/grid.locale-cn.js"></script>
+		<title>jqGrid tree</title>
+	</head>
+	<body>
+		<table id="tree"></table>
+		<div id="pager"></div>
+		<script type="text/javascript">
+			$(function() {
+				$('#tree').jqGrid({
+					"url":"data/treetest.json",
+
+					"colModel":[
+						{
+							"label":"id",
+							"name":"id",
+							"key":true,
+							"width":100,
+							// "hidden":true
+						}/*,{
+						 "label":"系统",
+						 "name":"systemInfo.name",
+						 "width":170
+						 },{
+						 "label":"爷菜单",
+						 "name":"parentMenu.parentMenu.menuName",
+						 "width":170
+						 },{
+						 "label":"父菜单",
+						 "name":"parentMenu.menuName",
+						 "width":170
+						 }*/,{
+							"label":"菜单",
+							"name":"name",
+							"width":170
+						},{
+							"label":"级别",
+							"name":"level",
+							"width":170
+						}
+					],
+					//"shrinkToFit":true,
+					"height":"400",
+					"loadonce":false,
+					"rowNum":50,
+					"rowList":[20,50,100],
+					//"scrollrows":true,
+					"treeGrid":true,
+					"treeIcons":{"leaf":'ui-icon-document-b'},
+					// "ExpandColumn":"id",//树形结构在那列显示
+					"datatype":"json",
+					"pager":"#pager",
+					"treeGridModel":"adjacency",//treegrid所使用方法
+					"ExpandColumn":"elementName",
+					// "ExpandColClick":true,//点击展开行的文本是否展开收缩
+					// "treeGridModel":"nested",
+					"treeReader":{
+						"level_field":"level",//菜单级别
+						"expanded_field":false,//非叶子节点是否展开，允许为空，但一定要包含在数据中
+						"parent_id_field":"parentMenuId",//值必须为父级菜单的id值,
+						"loaded":"loaded",
+						"leaf_field":"isLeaf"
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
