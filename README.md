@@ -196,6 +196,23 @@ $("#gridTable").jqGrid("resetSelection", rowId);  
 }
 ```
 
+下面是改好的json数据：
+```javascript
+{
+    "rows":[
+        {"id":"1","name":"一级菜单","parentMenuId":null,"level":"0","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"2","name":"二级菜单1","parentMenuId":"1","level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"3","name":"三级菜单1","parentMenuId":"2","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"4","name":"三级菜单2","parentMenuId":"2","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"5","name":"二级菜单2","parentMenuId":"1","level":"1","isLeaf":false,"expanded":false,"loaded":true},
+        {"id":"6","name":"三级菜单1","parentMenuId":"5","level":"2","isLeaf":true,"expanded":false,"loaded":true},
+        {"id":"7","name":"三级菜单2","parentMenuId":"5","level":"2","isLeaf":true,"expanded":false,"loaded":true}
+    ]
+}
+```
+
+发现什么区别了吗？原来只需要把parentMenuId的数值改成跟id一样是字符串的形式就好了，是不是很神奇呢？详情demo请查看tree.html和data/treetest.json。
+
 ----------
 参考文章链接
 
