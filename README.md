@@ -5,8 +5,8 @@ jqGrid项目使用总结
 [jqGrid实例中文版](http://blog.mn886.net/jqGrid/) 
 
 首先说一下项目的需求：<br>
-type==0  永久锁     status==0 正常    --可以变更为定期激活锁<br>
-type==1  定期激活锁  status==0 正常 || status==1 未激活   --可以变更为永久锁，可挂失<br>
+type==0  AAA     status==0 正常    --可以变更为BBB<br>
+type==1  BBB  status==0 正常 || status==1 未激活   --可以变更为AAA，可挂失<br>
 status==4  已挂失  --只有已挂失的锁可以取消挂失
 
 下面是我在项目中遇到问题的总结：1和2请在localhost环境打开index.html查看效果
@@ -37,13 +37,13 @@ function watchBtn(arrList){
   var cancelLossBtn = false;
   if(arrList && arrList.length>0){
     for(var i=0;i<arrList.length;i++){
-      if(arrList[i].type != 1 || arrList[i].status != 0){  //只有type==1 && status==0(定期激活 正常)才能变更为永久
+      if(arrList[i].type != 1 || arrList[i].status != 0){  //只有type==1 && status==0(BBB 正常)才能变更为AAA
         toForeverBtn = true;
       };
-      if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(永久 正常)才能变更为定期激活
+      if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(AAA 正常)才能变更为BBB
         toActivationBtn = true;
       };
-      if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(定期激活 正常 未激活)才能挂失
+      if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未激活)才能挂失
         lossBtn = true;
       };
       if(arrList[i].status != 4){  //只有status==4(已挂失)才能取消挂失
@@ -76,10 +76,10 @@ colModel:[
         formatter: function(cellValue, options, rowObject){
             switch(cellValue){
                 case 0:
-                    return "永久";
+                    return "AAA";
                     break;
                 case 1:
-                    return "定期激活";
+                    return "BBB";
                     break;
            }
         }
@@ -104,10 +104,10 @@ colModel:[
         formatter: function(cellValue, options, rowObject){
             switch(rowObject.type){
                 case 0:
-                    return "永久";
+                    return "AAA";
                     break;
                 case 1:
-                    return "定期激活";
+                    return "BBB";
                     break;
            }
         }
