@@ -9,7 +9,7 @@ type==0  AAA     status==0 正常    --可以变更为BBB<br>
 type==1  BBB  status==0 正常 || status==1 未激活   --可以变更为AAA，可挂失<br>
 status==4  已挂失  --只有已挂失的锁可以取消挂失
 
-下面是我在项目中遇到问题的总结：1和2请在localhost环境打开index.html查看效果
+下面是我在项目中遇到问题的总结：1、2和3请在localhost环境打开index.html查看效果
 
 ### 1.onSelectRow的问题
 
