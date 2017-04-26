@@ -213,7 +213,6 @@ $("#gridTable").jqGrid("resetSelection", rowId);  
 
 发现什么区别了吗？原来只需要把parentMenuId的数值改成跟id一样是字符串的形式就好了，是不是很神奇呢？详情demo请查看tree.html和data/treetest.json。
 
-
 ----------
 参考文章链接
 
