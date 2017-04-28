@@ -217,4 +217,3 @@ $("#gridTable").jqGrid("resetSelection", rowId);  
 参考文章链接
 
 http://blog.mn886.net/jqGrid/
-
