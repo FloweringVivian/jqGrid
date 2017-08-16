@@ -219,3 +219,5 @@ $("#gridTable").jqGrid("resetSelection", rowId);  
 http://blog.mn886.net/jqGrid/
 
 
+
+
