@@ -6,8 +6,8 @@ jqGrid项目使用总结
 
 首先说一下项目的需求：<br>
 type==0  AAA     status==0 正常    --可以变更为BBB<br>
-type==1  BBB  status==0 正常 || status==1 未开启   --可以变更为AAA，可挂失<br>
-status==4  已挂失  --只有已挂失状态可以取消挂失
+type==1  BBB  status==0 正常 || status==1 未开启   --可以变更为AAA，可挂起<br>
+status==4  已挂起  --只有已挂起状态可以取消挂起
 
 下面是我在项目中遇到问题的总结：1、2和3请在localhost环境打开index.html查看效果
 
@@ -43,10 +43,10 @@ function watchBtn(arrList){
       if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(AAA 正常)才能变更为BBB
         toActivationBtn = true;
       };
-      if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未开启)才能挂失
+      if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未开启)才能挂起
         lossBtn = true;
       };
-      if(arrList[i].status != 4){  //只有status==4(已挂失)才能取消挂失
+      if(arrList[i].status != 4){  //只有status==4(已挂起)才能取消挂起
         cancelLossBtn = true;
       };
     }
@@ -70,7 +70,7 @@ function watchBtn(arrList){
 ```javascript
 colModel:[
     {
-        label:"激活类型",
+        label:"开启类型",
         name: "type",
         width: 100,
         formatter: function(cellValue, options, rowObject){
@@ -92,13 +92,13 @@ status也采用了同样的原理，结果问题来了，加了formatter以后�
 ```javascript
 colModel:[
     {
-        label:"激活类型",
+        label:"开启类型",
         name: "type",
         width: 100,
         hidden: true
     },
     {
-        label:"激活类型",
+        label:"开启类型",
         name: "typeName",
         width: 100,
         formatter: function(cellValue, options, rowObject){

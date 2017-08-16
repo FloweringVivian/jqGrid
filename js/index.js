@@ -14,10 +14,10 @@ function watchBtn(arrList){
 			if(arrList[i].type != 0 || arrList[i].status != 0){  //只有type==0 && status==0(AAA 正常)才能变更为BBB
 				toActivationBtn = true;
 			};
-			if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未激活)才能挂失
+			if(arrList[i].type != 1 || (arrList[i].status != 0 && arrList[i].status != 1)){  //只有type==1 && (status==0 || status==1)(BBB 正常 未开启)才能挂起
 				lossBtn = true;
 			};
-			if(arrList[i].status != 4){  //只有status==4(已挂失)才能取消挂失
+			if(arrList[i].status != 4){  //只有status==4(已挂起)才能取消挂起
 				cancelLossBtn = true;
 			};
 		}
@@ -106,13 +106,13 @@ $(function(){
 				width: 80
 			},
 			{
-				label: "激活类型",
+				label: "开启类型",
 				name: "type",
 				width: 100,
 				hidden: true
 			},
 			{
-				label: "激活类型",
+				label: "开启类型",
 				name: "typeName",
 				width: 100,
 				formatter: function(cellValue, options, rowObject){
@@ -142,7 +142,7 @@ $(function(){
 							return "正常";
 							break;
 						case 1:
-							return "未激活";
+							return "未开启";
 							break;
 						case 2:
 							return "正在变更为BBB";
@@ -151,16 +151,16 @@ $(function(){
 							return "正在变更为AAA";
 							break;
 						case 4:
-							return "已挂失";
+							return "已挂起";
 							break;
 						case 5:
-							return "正在取消挂失";
+							return "正在取消挂起";
 							break;
 					}
 				}
 			},
 			{
-				label: "最近激活时间",
+				label: "最近开启时间",
 				name: "latestTime",
 				width: 120
 			},
@@ -168,7 +168,7 @@ $(function(){
 				label: "操作",
 				name: "operate",
 				width: 100,
-				formatter: function (value, grid, rows, state) { return "<a href=\"#\" style=\"color:#f60\" data-toggle=\"modal\" data-target=\"#history-modal\"  onclick=\"historyRecords(" + rows.id + ")\">记录</a><a href=\"#\" style=\"color:#f60;margin-left:10px;\" data-toggle=\"modal\" data-target=\"#detail-modal\" onclick=\"detail(" + rows.id + ")\">查看</a>" }
+				formatter: function (value, grid, rows, state) { return "<a href=\"#\" style=\"color:#f60\" data-toggle=\"modal\" data-target=\"#history-modal\"  onclick=\"historyRecords(" + rows.id + ")\">历史变更记录</a><a href=\"#\" style=\"color:#f60;margin-left:10px;\" data-toggle=\"modal\" data-target=\"#detail-modal\" onclick=\"detail(" + rows.id + ")\">查看详情</a>" }
 			}
 		],
 		viewrecords: true,
