@@ -33,6 +33,12 @@ var ids=$("#gridTable").jqGrid("getGridParam","selarrrow");
 var rowData = $("#gridTable").jqGrid("getRowData",rowId);
 ```
 
+如果想控制jgGrid获得的id值是主键的id而不是jqGrid的行号值，一定要将你的主键值的的key设置为true。
+
+```javascript
+{name: 'cityId', index: 'cityId', width:0, hidden:true, key:true},
+```
+
 #### 1-3 设置选中行
 
 ```javascript
@@ -210,6 +216,7 @@ colModel:[
 ]
 ```
 这样就定义了两个按钮，并且在js里为这两个按钮定义了两个函数，但是我无意中发现，使用a标签定义这两个按钮是没有问题的，但是有的同学不经意间使用了span标签来定义这两个按钮，并且给span加了cursor:pointer，虽然这样看起来跟a标签没有什么区别，但是使用span标签的过程中出现了一个bug，就是我点击按钮的时候按钮所在的行会被选中或取消选中，本来我点击按钮是要打开弹窗的，并不想选中一行，希望点击一行中除了按钮以外的位置再选中一行，**所以注意：要使用a标签来定义按钮，而不是span标签。**
+
 
 ----------
 参考文章链接
