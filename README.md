@@ -217,6 +217,24 @@ colModel:[
 ```
 这样就定义了两个按钮，并且在js里为这两个按钮定义了两个函数，但是我无意中发现，使用a标签定义这两个按钮是没有问题的，但是有的同学不经意间使用了span标签来定义这两个按钮，并且给span加了cursor:pointer，虽然这样看起来跟a标签没有什么区别，但是使用span标签的过程中出现了一个bug，就是我点击按钮的时候按钮所在的行会被选中或取消选中，本来我点击按钮是要打开弹窗的，并不想选中一行，希望点击一行中除了按钮以外的位置再选中一行，**所以注意：要使用a标签来定义按钮，而不是span标签。**
 
+### 6.切换每页显示条数后保存设置的问题
+
+例如默认每页条数为10，用户切换为20后想下次登录或切换页面后依旧保存设置20，则在onPaging方法中获取到用户切换的每页条数值存到localStorage中，然后每次初始化表格时从localStorage中取到rowNum的值。
+
+```javascript
+onPaging: function(pageBtn) {
+    if (pageBtn == 'records') {
+        setTimeout(function() {
+            var re_rowNum = $('#gridTable').jqGrid('getGridParam', 'rowNum');
+            var storage = window.localStorage;
+            storage.setItem('rowNum', re_rowNum);
+        });
+    };
+}
+```
+
+注意：从localStorage中取到rowNum的值是字符串类型，要转化为数值型，否则会导致分页条数下拉菜单默认选中项总是10。
+
 
 ----------
 参考文章链接
